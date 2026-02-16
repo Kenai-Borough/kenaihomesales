@@ -1,4 +1,5 @@
 import type { Listing } from '../types';
+import StripeEscrowCheckout from './StripeEscrowCheckout';
 
 interface ListingCardProps {
   listing: Listing;
@@ -56,9 +57,12 @@ export function ListingCard({ listing }: ListingCardProps) {
           </div>
         )}
         
-        <button className="w-full bg-alaska-blue text-white py-2 rounded hover:bg-alaska-blue-light transition">
-          View Details
-        </button>
+        <StripeEscrowCheckout
+          amount={listing.price}
+          itemId={listing.id}
+          itemTitle={listing.title}
+          sellerId="kenaihomesales"
+        />
       </div>
     </div>
   );
