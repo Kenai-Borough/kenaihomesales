@@ -3,7 +3,104 @@
 @tailwind utilities;
 
 @layer base {
-  body {
-    @apply bg-gray-50 text-gray-900;
+  :root {
+    color-scheme: dark;
   }
+
+  body {
+    @apply bg-slate-950 text-slate-100 antialiased;
+    background-image: radial-gradient(circle at top, rgba(34, 211, 238, 0.15), transparent 25%), linear-gradient(180deg, #020617 0%, #0f172a 45%, #020617 100%);
+  }
+
+  html.light body {
+    @apply bg-slate-50 text-slate-900;
+    background-image: radial-gradient(circle at top, rgba(8, 145, 178, 0.08), transparent 24%), linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
+  }
+
+  a {
+    @apply transition;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-full bg-cyan-400 px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-cyan-300;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-full border border-white/15 px-5 py-3 text-sm font-semibold text-white transition hover:border-cyan-300 hover:text-cyan-200;
+  }
+
+  html.light .btn-secondary {
+    @apply border-slate-300 text-slate-900 hover:border-cyan-600 hover:text-cyan-700;
+  }
+
+  .icon-button {
+    @apply inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-slate-200 transition hover:border-cyan-300 hover:text-cyan-200;
+  }
+
+  html.light .icon-button {
+    @apply border-slate-300 bg-white text-slate-700 hover:border-cyan-600 hover:text-cyan-700;
+  }
+
+  .input-glass {
+    @apply w-full rounded-2xl border border-white/10 bg-slate-950/70 px-4 py-3 text-sm text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-300;
+  }
+
+  html.light .input-glass {
+    @apply border-slate-300 bg-white text-slate-900 placeholder:text-slate-400 focus:border-cyan-600;
+  }
+
+  .select-glass {
+    @apply input-glass appearance-none;
+  }
+
+  .card-elevated {
+    @apply rounded-[30px] border border-white/10 bg-white/5 p-6 shadow-glow backdrop-blur-xl;
+  }
+
+  html.light .card-elevated {
+    @apply border-slate-200 bg-white/90 shadow-xl shadow-slate-200/70;
+  }
+
+  .metric-card {
+    @apply rounded-[26px] border border-white/10 bg-slate-950/60 p-5;
+  }
+
+  html.light .metric-card {
+    @apply border-slate-200 bg-slate-50;
+  }
+
+  .section-shell {
+    @apply py-16 md:py-20;
+  }
+
+  .section-eyebrow {
+    @apply text-sm uppercase tracking-[0.35em] text-cyan-300;
+  }
+
+  html.light .section-eyebrow {
+    @apply text-cyan-700;
+  }
+
+  .section-title {
+    @apply mt-3 max-w-3xl text-3xl font-semibold tracking-tight text-white md:text-4xl;
+  }
+
+  html.light .section-title {
+    @apply text-slate-900;
+  }
+
+  .badge-dark {
+    @apply inline-flex items-center gap-2 rounded-full border border-white/10 bg-slate-950/80 px-3 py-1.5 text-xs font-medium text-slate-100;
+  }
+
+  html.light .badge-dark {
+    @apply border-slate-200 bg-white text-slate-700;
+  }
+}
+
+.leaflet-container {
+  border-radius: 24px;
+  z-index: 0;
 }
