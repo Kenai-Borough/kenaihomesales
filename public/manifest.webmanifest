@@ -1,0 +1,16 @@
+{
+  "name": "Kenai Home Sales",
+  "short_name": "Kenai Homes",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#020617",
+  "theme_color": "#020617",
+  "description": "Modern FSBO home sales across the Kenai Peninsula.",
+  "icons": [
+    {
+      "src": "/vite.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
