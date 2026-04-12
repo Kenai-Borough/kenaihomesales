@@ -3,6 +3,8 @@ import { ArrowLeft, ArrowRight, CheckCircle2 } from 'lucide-react';
 import { Seo } from '../components/common/Seo';
 import { closingChecklist } from '../data/homes';
 import { useToast } from '../context/ToastContext';
+import { emailService } from '../lib/email';
+import { emailTemplates } from '../lib/email-templates';
 
 const steps = ['Basics', 'Home details', 'Photos & story', 'Pricing', 'Review'];
 
@@ -93,7 +95,7 @@ export default function SellPage() {
                 {step < steps.length - 1 ? (
                   <button className="btn-primary gap-2" type="button" onClick={() => setStep((current) => Math.min(steps.length - 1, current + 1))}>Next <ArrowRight className="h-4 w-4" /></button>
                 ) : (
-                  <button className="btn-primary gap-2" type="button" onClick={() => notify('Listing draft saved. Next step: connect Supabase + Stripe checkout.')}>Submit draft <CheckCircle2 className="h-4 w-4" /></button>
+                  <button className="btn-primary gap-2" type="button" onClick={() => void (async () => { const listingEmail = emailTemplates.eventSubmissionConfirmation({ eventName: form.headline || 'Home listing draft', dashboardUrl: `${window.location.origin}/dashboard` }); const result = await emailService.send({ to: form.email || 'hello@kenaihomesales.com', ...listingEmail, subject: `Home listing draft ready: ${form.headline}`, metadata: { notificationType: 'listing-created', city: form.city } }); notify(result.queued ? 'Listing draft saved. Email delivery may be delayed.' : 'Listing draft saved. Next step: connect Supabase + Stripe checkout.') })()}>Submit draft <CheckCircle2 className="h-4 w-4" /></button>
                 )}
               </div>
             </div>

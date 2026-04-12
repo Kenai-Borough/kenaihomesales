@@ -3,6 +3,7 @@ import { Globe2, KeyRound, Trash2, UserCircle2 } from 'lucide-react'
 import { useState } from 'react'
 import { Navigate } from 'react-router-dom'
 import { SITE_ROLE_OPTIONS, useKenaiAuth } from '../../contexts/KenaiAuthContext'
+import { EmailPreferences } from '../../components/EmailPreferences'
 
 export function KenaiAccount() {
   const auth = useKenaiAuth()
@@ -119,6 +120,12 @@ export function KenaiAccount() {
               })}
             </div>
           </section>
+
+          <EmailPreferences userId={auth.user.id} userEmail={auth.user.email} />
+
+          <EmailPreferences userId={auth.user.id} userEmail={auth.user.email} />
+
+          <EmailPreferences userId={auth.user.id} userEmail={auth.user.email} />
 
           <section className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-xl dark:border-white/10 dark:bg-slate-950/85 dark:text-white">
             <form className="space-y-4" onSubmit={handlePassword}>

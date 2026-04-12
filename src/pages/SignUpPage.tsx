@@ -3,6 +3,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Seo } from '../components/common/Seo';
 import { useAuth } from '../context/AuthContext';
 import type { UserRole } from '../types';
+import { emailService } from '../lib/email';
+import { emailTemplates } from '../lib/email-templates';
 
 export default function SignUpPage() {
   const navigate = useNavigate();
@@ -17,6 +19,8 @@ export default function SignUpPage() {
     setLoading(true);
     try {
       await signUp(form);
+      const welcome = emailTemplates.welcomeEmail({ recipientName: form.fullName || 'there', dashboardUrl: `${window.location.origin}/dashboard` });
+      await emailService.send({ to: form.email, ...welcome, metadata: { notificationType: 'welcome-email', userRole: form.role } });
       navigate('/dashboard');
     } catch (caught) {
       setError(caught instanceof Error ? caught.message : 'Unable to create account.');

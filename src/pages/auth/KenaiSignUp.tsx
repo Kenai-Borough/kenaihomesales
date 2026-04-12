@@ -3,6 +3,8 @@ import { CheckCircle2, UserPlus2 } from 'lucide-react'
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { DEFAULT_ROLE, SITE_ROLE_OPTIONS, useKenaiAuth } from '../../contexts/KenaiAuthContext'
+import { emailService } from '../../lib/email'
+import { emailTemplates } from '../../lib/email-templates'
 
 export function KenaiSignUp() {
   const navigate = useNavigate()
@@ -27,6 +29,8 @@ export function KenaiSignUp() {
     setLoading(true)
     try {
       await auth.signUp(email, password, fullName, role)
+      const welcome = emailTemplates.welcomeEmail({ recipientName: fullName || 'there', dashboardUrl: `${window.location.origin}/account` })
+      await emailService.send({ to: email, ...welcome, metadata: { notificationType: 'welcome-email' } })
       navigate('/account')
     } catch (caught) {
       setError(caught instanceof Error ? caught.message : 'Unable to create your Kenai Network account.')

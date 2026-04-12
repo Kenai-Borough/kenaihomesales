@@ -9,6 +9,8 @@ import { MortgageCalculator } from '../components/homes/MortgageCalculator';
 import { homes } from '../data/homes';
 import { useToast } from '../context/ToastContext';
 import { currency, findSimilarHomes, loadHomeIds, saveHomeIds, propertyTypeLabel } from '../lib/utils';
+import { emailService } from '../lib/email';
+import { emailTemplates } from '../lib/email-templates';
 
 export default function HomeDetailPage() {
   const { id } = useParams();
@@ -129,7 +131,7 @@ export default function HomeDetailPage() {
                     <div key={note} className="rounded-2xl border border-white/10 bg-slate-950/70 p-4 text-sm leading-7 text-slate-300">{note}</div>
                   ))}
                 </div>
-                <button type="button" className="btn-primary mt-6 w-full" onClick={() => notify(`Message sent to ${home.sellerName}`)}>Contact seller</button>
+                <button type="button" className="btn-primary mt-6 w-full" onClick={() => void (async () => { const inquiry = emailTemplates.propertyInquiry({ propertyTitle: home.title, buyerName: 'Interested buyer', buyerEmail: 'notifications@kenaihomesales.com', message: 'A buyer opened the direct contact flow and is ready for a showing or disclosures.', propertyUrl: window.location.href }); const result = await emailService.send({ to: home.sellerEmail ?? 'hello@kenaihomesales.com', ...inquiry, metadata: { notificationType: 'property-inquiry', homeId: home.id } }); notify(result.queued ? 'Message sent (email notification may be delayed).' : `Message sent to ${home.sellerName}`) })()}>Contact seller</button>
               </div>
             </div>
 
