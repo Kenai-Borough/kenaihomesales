@@ -16,7 +16,7 @@
   export const SITE_LABEL = 'Kenai Home Sales'
   export const SITE_DOMAIN = 'https://kenaihomesales.com'
   export const DEFAULT_ROLE = 'buyer'
-  export const KENAI_NETWORK_SITES = [{"key": "borough", "label": "Kenai Borough", "url": "https://kenaiborough.com"}, {"key": "realty", "label": "Kenai Borough Realty", "url": "https://kenaiboroughrealty.com"}, {"key": "land", "label": "Kenai Land Sales", "url": "https://kenailandsales.com"}, {"key": "rentals", "label": "Kenai Peninsula Rentals", "url": "https://kenaipeninsularentals.com"}, {"key": "homes", "label": "Kenai Home Sales", "url": "https://kenaihomesales.com"}, {"key": "auto", "label": "Kenai Auto Sales", "url": "https://kenaiautosales.com"}] as { key: string; label: string; url: string }[]
+  export const KENAI_NETWORK_SITES = [{"key": "borough", "label": "Kenai Borough", "url": "https://kenaiborough.com"}, {"key": "realty", "label": "Kenai Borough Realty", "url": "https://kenaiboroughrealty.com"}, {"key": "land", "label": "Kenai Land Sales", "url": "https://kenailandsales.com"}, {"key": "rentals", "label": "Kenai Peninsula Rentals", "url": "https://kenaipeninsularentals.com"}, {"key": "homes", "label": "Kenai Home Sales", "url": "https://kenaihomesales.com"}, {"key": "auto", "label": "Kenai Auto Sales", "url": "https://kenaiautosales.com"}, {"key": "listings", "label": "Kenai Listings", "url": "https://kenailistings.com"}] as { key: string; label: string; url: string }[]
   export const SITE_ROLE_OPTIONS = [
     { value: 'buyer', label: 'Buy homes' },
 { value: 'seller', label: 'Sell homes' },
