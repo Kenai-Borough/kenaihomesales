@@ -8,8 +8,27 @@ import { HomeMap } from '../components/homes/HomeMap';
 import { homes, featuredHomes, marketTrends, reviews, whySellDirect } from '../data/homes';
 import { useToast } from '../context/ToastContext';
 import { currency, loadHomeIds, saveHomeIds } from '../lib/utils';
+import { CrossTrafficAds } from '../components/CrossTrafficAds';
 
 export default function HomePage() {
+  const homeSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "RealEstateAgent",
+        "name": "Kenai Home Sales",
+        "url": "https://kenaihomesales.com",
+        "areaServed": "Kenai Peninsula Borough, Alaska",
+        "description": "Modern FSBO home marketplace for Kenai Peninsula buyers and sellers."
+      },
+      {
+        "@type": "WebSite",
+        "name": "Kenai Home Sales",
+        "url": "https://kenaihomesales.com"
+      }
+    ]
+  };
+
   const navigate = useNavigate();
   const { notify } = useToast();
   const [query, setQuery] = useState('');
@@ -35,17 +54,10 @@ export default function HomePage() {
   return (
     <div>
       <Seo
-        title="Direct-sale homes on the Kenai Peninsula"
-        description="Browse Kenai Peninsula homes with filters, maps, mortgage tools, and seller verification built in."
+        title="Kenai Home Sales | Kenai Peninsula, Alaska"
+        description="Browse Kenai homes for sale, compare neighborhoods, and launch a polished FSBO listing flow for buyers and sellers across the peninsula."
         path="/"
-        schema={{
-          '@context': 'https://schema.org',
-          '@type': 'RealEstateAgent',
-          name: 'Kenai Home Sales',
-          url: 'https://kenaihomesales.com',
-          areaServed: 'Kenai Peninsula Borough',
-          description: 'Modern FSBO home marketplace for Kenai Peninsula buyers and sellers.',
-        }}
+        schema={homeSchema}
       />
 
       <section className="section-shell border-b border-white/10">
@@ -169,6 +181,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-    </div>
+          <CrossTrafficAds />
+</div>
   );
 }

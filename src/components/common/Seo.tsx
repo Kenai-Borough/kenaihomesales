@@ -21,7 +21,7 @@ const ensureMeta = (selector: string, attribute: 'name' | 'property', value: str
 
 export function Seo({ title, description, path, image, schema }: SeoProps) {
   useEffect(() => {
-    document.title = `${title} | Kenai Home Sales`;
+    document.title = title.includes('|') ? title : title + ' | Kenai Home Sales';
     ensureMeta('meta[name="description"]', 'name', 'description').content = description;
     ensureMeta('meta[property="og:title"]', 'property', 'og:title').content = title;
     ensureMeta('meta[property="og:description"]', 'property', 'og:description').content = description;

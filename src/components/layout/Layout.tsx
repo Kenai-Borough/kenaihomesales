@@ -4,6 +4,7 @@ import { Link, NavLink, Outlet, useLocation } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import { useTheme } from '../../context/ThemeContext';
 import { sisterSites } from '../../lib/config';
+import { KenaiNetworkBanner } from '../../KenaiNetworkBanner';
 
 const navItems = [
   { to: '/browse', label: 'Browse homes' },
@@ -69,6 +70,7 @@ export default function Layout() {
       </AnimatePresence>
 
       <footer className="border-t border-white/10 bg-slate-950/90">
+        <KenaiNetworkBanner />
         <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
           <div className="grid gap-8 lg:grid-cols-[1.1fr_1fr_1fr]">
             <div>
