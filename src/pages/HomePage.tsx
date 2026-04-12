@@ -62,7 +62,7 @@ export default function HomePage() {
 
       <section className="section-shell relative overflow-hidden border-b border-white/10">
         <div className="absolute inset-0">
-          <img src="/hero-illustration.svg" alt="" aria-hidden="true" className="h-full w-full object-cover opacity-90" />
+          <img src="/hero-illustration.svg" alt="" aria-hidden="true" loading="lazy" width="1600" height="900" className="h-full w-full object-cover opacity-90" />
           <div className="absolute inset-0 bg-[linear-gradient(120deg,rgba(2,6,23,0.86),rgba(8,25,42,0.72),rgba(15,23,42,0.4))]" />
         </div>
         <div className="relative mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[1.08fr_0.92fr] lg:px-8">
@@ -94,7 +94,7 @@ export default function HomePage() {
 
           <div className="card-elevated space-y-5">
             <div className="relative overflow-hidden rounded-[26px] border border-white/10 bg-slate-950/45">
-              <img src="/hero-illustration.svg" alt="" aria-hidden="true" className="h-40 w-full object-cover" />
+              <img src="/hero-illustration.svg" alt="" aria-hidden="true" loading="lazy" width="1600" height="900" className="h-40 w-full object-cover" />
               <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950 via-slate-950/80 to-transparent p-4">
                 <p className="text-xs uppercase tracking-[0.3em] text-cyan-200">Neighborhood spotlight</p>
                 <p className="mt-2 text-sm text-slate-100">Varied Alaska homes with mountain-backed community appeal.</p>

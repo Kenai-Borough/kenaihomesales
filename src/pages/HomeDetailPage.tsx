@@ -55,12 +55,12 @@ export default function HomeDetailPage() {
           <div>
             <div className="grid gap-3 md:grid-cols-[2fr_1fr]">
               <div className="overflow-hidden rounded-[32px] border border-white/10 bg-slate-900">
-                <img alt={home.title} className="h-[420px] w-full object-cover" src={home.images[0]} />
+                <img alt={home.title} loading="lazy" width="1600" height="1067" className="h-[420px] w-full object-cover" src={home.images[0]} />
               </div>
               <div className="grid gap-3">
                 {home.images.slice(1).map((image) => (
                   <div key={image} className="overflow-hidden rounded-[28px] border border-white/10 bg-slate-900">
-                    <img alt={home.title} className="h-[203px] w-full object-cover" src={image} />
+                    <img alt={home.title} loading="lazy" width="800" height="533" className="h-[203px] w-full object-cover" src={image} />
                   </div>
                 ))}
               </div>

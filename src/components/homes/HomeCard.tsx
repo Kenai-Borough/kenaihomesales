@@ -14,7 +14,7 @@ export function HomeCard({ home, onSave }: HomeCardProps) {
   return (
     <motion.article initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} whileHover={{ y: -8 }} className="group overflow-hidden rounded-[28px] border border-white/10 bg-slate-950/75 shadow-xl shadow-slate-950/20">
       <div className="relative h-60 overflow-hidden">
-        <img alt={home.title} className="h-full w-full object-cover transition duration-500 group-hover:scale-105" src={home.images[0]} />
+        <img alt={home.title} loading="lazy" width="1400" height="900" className="h-full w-full object-cover transition duration-500 group-hover:scale-105" src={home.images[0]} />
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent" />
         <div className="absolute left-4 top-4 flex flex-wrap gap-2">
           {home.verifiedSeller && <VerificationBadge label={home.badge} />}

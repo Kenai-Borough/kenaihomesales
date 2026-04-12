@@ -1,0 +1,23 @@
+{
+  "name": "Kenai Home Sales",
+  "short_name": "Kenai Homes",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#020617",
+  "theme_color": "#020617",
+  "description": "Browse Kenai homes for sale, compare neighborhoods, and launch a polished FSBO listing flow for buyers and sellers.",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/og-image.svg",
+      "sizes": "1200x630",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
