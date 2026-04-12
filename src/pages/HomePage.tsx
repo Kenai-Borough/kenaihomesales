@@ -60,8 +60,12 @@ export default function HomePage() {
         schema={homeSchema}
       />
 
-      <section className="section-shell border-b border-white/10">
-        <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[1.08fr_0.92fr] lg:px-8">
+      <section className="section-shell relative overflow-hidden border-b border-white/10">
+        <div className="absolute inset-0">
+          <img src="/hero-illustration.svg" alt="" aria-hidden="true" className="h-full w-full object-cover opacity-90" />
+          <div className="absolute inset-0 bg-[linear-gradient(120deg,rgba(2,6,23,0.86),rgba(8,25,42,0.72),rgba(15,23,42,0.4))]" />
+        </div>
+        <div className="relative mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[1.08fr_0.92fr] lg:px-8">
           <div>
             <p className="section-eyebrow">Kenai Peninsula homes</p>
             <h1 className="section-title text-5xl leading-tight md:text-6xl">Buy or sell Alaska homes without losing the professional edge.</h1>
@@ -89,6 +93,13 @@ export default function HomePage() {
           </div>
 
           <div className="card-elevated space-y-5">
+            <div className="relative overflow-hidden rounded-[26px] border border-white/10 bg-slate-950/45">
+              <img src="/hero-illustration.svg" alt="" aria-hidden="true" className="h-40 w-full object-cover" />
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950 via-slate-950/80 to-transparent p-4">
+                <p className="text-xs uppercase tracking-[0.3em] text-cyan-200">Neighborhood spotlight</p>
+                <p className="mt-2 text-sm text-slate-100">Varied Alaska homes with mountain-backed community appeal.</p>
+              </div>
+            </div>
             <div className="flex items-center gap-3 text-cyan-300"><Search className="h-5 w-5" /> Smart home search</div>
             <div className="grid gap-4 md:grid-cols-[1fr_auto]">
               <input className="input-glass" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search Kenai, Soldotna, Homer, cabins, townhomes..." />
