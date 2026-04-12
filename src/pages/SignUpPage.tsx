@@ -43,6 +43,7 @@ export default function SignUpPage() {
               <option value="seller">Seller</option>
               <option value="admin">Admin</option>
             </select>
+            <p className="mt-3 text-xs text-slate-400 dark:text-slate-500">By creating an account, you agree to our <Link to="/terms" className="text-sky-400 hover:underline">Terms of Service</Link> and <Link to="/privacy" className="text-sky-400 hover:underline">Privacy Policy</Link>.</p>
             <button className="btn-primary md:col-span-2" type="submit" disabled={loading}>{loading ? 'Creating account...' : 'Create account'}</button>
           </form>
           <p className="mt-4 text-sm text-slate-300">Already have an account? <Link className="text-cyan-300" to="/signin">Sign in</Link>.</p>

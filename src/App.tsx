@@ -16,6 +16,13 @@ import { KenaiAccount } from './pages/auth/KenaiAccount';
 import { KenaiSignIn } from './pages/auth/KenaiSignIn';
 import { KenaiSignUp } from './pages/auth/KenaiSignUp';
 import SellPage from './pages/SellPage';
+import TermsOfService from './pages/legal/TermsOfService';
+import PrivacyPolicy from './pages/legal/PrivacyPolicy';
+import CookiePolicy from './pages/legal/CookiePolicy';
+import DMCA from './pages/legal/DMCA';
+import AcceptableUse from './pages/legal/AcceptableUse';
+import RealEstateDisclaimer from './pages/legal/RealEstateDisclaimer';
+import FairHousing from './pages/legal/FairHousing';
 
 function App() {
   return (
@@ -36,6 +43,13 @@ function App() {
             <Route path="signup" element={<KenaiSignUp />} />
             <Route path="account" element={<ProtectedRoute><KenaiAccount /></ProtectedRoute>} />
             <Route path="admin" element={<AdminRoute><AdminPage /></AdminRoute>} />
+                <Route path="/terms" element={<TermsOfService />} />
+                <Route path="/privacy" element={<PrivacyPolicy />} />
+                <Route path="/cookies" element={<CookiePolicy />} />
+                <Route path="/dmca" element={<DMCA />} />
+                <Route path="/acceptable-use" element={<AcceptableUse />} />
+                <Route path="/real-estate-disclaimer" element={<RealEstateDisclaimer />} />
+                <Route path="/fair-housing" element={<FairHousing />} />
             <Route path="*" element={<NotFoundPage />} />
           </Route>
         </Routes>
