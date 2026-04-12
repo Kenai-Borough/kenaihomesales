@@ -20,6 +20,7 @@ const KenaiAccount = lazy(async () => ({ default: (await import('./pages/auth/Ke
 const KenaiSignIn = lazy(async () => ({ default: (await import('./pages/auth/KenaiSignIn')).KenaiSignIn }));
 const KenaiSignUp = lazy(async () => ({ default: (await import('./pages/auth/KenaiSignUp')).KenaiSignUp }));
 const SellPage = lazy(() => import('./pages/SellPage'));
+const EscrowTransactionPage = lazy(() => import('./pages/EscrowTransactionPage'));
 const TermsOfService = lazy(() => import('./pages/legal/TermsOfService'));
 const PrivacyPolicy = lazy(() => import('./pages/legal/PrivacyPolicy'));
 const CookiePolicy = lazy(() => import('./pages/legal/CookiePolicy'));
@@ -46,6 +47,8 @@ function AppRoutes() {
             <Route path="sell" element={<SellPage />} />
             <Route path="how-it-works" element={<HowItWorksPage />} />
             <Route path="dashboard" element={<ProtectedRoute><DashboardPage /></ProtectedRoute>} />
+            <Route path="escrow/:id" element={<ProtectedRoute><EscrowTransactionPage /></ProtectedRoute>} />
+            <Route path="escrow/demo" element={<EscrowTransactionPage />} />
             <Route path="sign-in" element={<KenaiSignIn />} />
             <Route path="signin" element={<KenaiSignIn />} />
             <Route path="login" element={<KenaiSignIn />} />
