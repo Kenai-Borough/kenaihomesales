@@ -1,0 +1,12 @@
+name: Daily Health Check
+on:
+  schedule:
+    - cron: '0 16 * * *'  # 8 AM AKST
+  workflow_dispatch:
+
+jobs:
+  health:
+    uses: alaskacg/.github/.github/workflows/site-health.yml@main
+    with:
+      domain: kenaihomesales.com
+      payment_enabled: false
